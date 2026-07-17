@@ -34,7 +34,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, Var
 function Button({ className, variant, size, asChild, href, children, ...props }: ButtonProps) {
   const classes = cn(buttonVariants({ variant, size, className }));
 
-  if (asChild && href) {
+  if (href) {
     return (
       <Link href={href} className={classes}>
         {children}
