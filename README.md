@@ -47,18 +47,11 @@ npm run dev -- --webpack
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Demo Credentials
-
-- **Email:** demo@saastack.app
-- **Password:** password123
-
 ## Pages
 
 | Route | Description |
 |-------|-------------|
 | `/` | Landing page with features and pricing |
-| `/login` | Email/password login |
-| `/signup` | Create new account |
 | `/dashboard` | Overview with charts and stats |
 | `/users` | Team management and invitations |
 | `/subscription` | Plan details and billing |
