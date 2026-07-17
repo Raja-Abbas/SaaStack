@@ -113,7 +113,7 @@ export default function LandingPage() {
               Open Dashboard
               <ArrowRight className="h-4 w-4" />
             </Button>
-            <Button size="lg" variant="outline" className="text-base px-8 border-slate-600 text-white hover:bg-slate-800 hover:text-white" href="#features">
+            <Button size="lg" className="text-base px-8 bg-white text-slate-900 hover:bg-slate-100" href="#features">
               Learn More
             </Button>
           </div>
