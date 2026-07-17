@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import Link from "next/link";
 import { Search, Bell, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -49,9 +50,9 @@ export function Header() {
           <span className="absolute right-1.5 top-1.5 h-2 w-2 rounded-full bg-blue-600" />
         </Button>
 
-        <button className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-sm font-medium text-white">
+        <Link href="/" className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-sm font-medium text-white hover:bg-blue-700 transition-colors">
           RA
-        </button>
+        </Link>
       </div>
     </header>
   );
