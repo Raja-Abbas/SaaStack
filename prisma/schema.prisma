@@ -1,0 +1,90 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  password      String
+  role          String    @default("user")
+  avatar        String?
+  createdAt     DateTime  @default(now())
+  memberships   Membership[]
+  activities    ActivityLog[]
+  apiKeys       ApiKey[]
+}
+
+model Organization {
+  id            String    @id @default(cuid())
+  name          String
+  slug          String    @unique
+  logo          String?
+  plan          String    @default("free")
+  createdAt     DateTime  @default(now())
+  memberships   Membership[]
+  invitations   Invitation[]
+  subscription  Subscription?
+  activities    ActivityLog[]
+}
+
+model Membership {
+  id              String    @id @default(cuid())
+  userId          String
+  user            User      @relation(fields: [userId], references: [id])
+  organizationId  String
+  organization    Organization @relation(fields: [organizationId], references: [id])
+  role            String    @default("member")
+  createdAt       DateTime  @default(now())
+  @@unique([userId, organizationId])
+}
+
+model Invitation {
+  id              String    @id @default(cuid())
+  email           String
+  role            String    @default("member")
+  organizationId  String
+  organization    Organization @relation(fields: [organizationId], references: [id])
+  token           String    @unique
+  expiresAt       DateTime
+  createdAt       DateTime  @default(now())
+}
+
+model Subscription {
+  id              String    @id @default(cuid())
+  organizationId  String    @unique
+  organization    Organization @relation(fields: [organizationId], references: [id])
+  plan            String    @default("free")
+  status          String    @default("active")
+  currentPeriodStart DateTime
+  currentPeriodEnd   DateTime
+  createdAt       DateTime  @default(now())
+}
+
+model ActivityLog {
+  id              String    @id @default(cuid())
+  action          String
+  resource        String?
+  resourceId      String?
+  details         String?
+  userId          String
+  user            User      @relation(fields: [userId], references: [id])
+  organizationId  String
+  organization    Organization @relation(fields: [organizationId], references: [id])
+  createdAt       DateTime  @default(now())
+}
+
+model ApiKey {
+  id              String    @id @default(cuid())
+  name            String
+  key             String    @unique
+  userId          String
+  user            User      @relation(fields: [userId], references: [id])
+  isActive        Boolean   @default(true)
+  lastUsed        DateTime?
+  createdAt       DateTime  @default(now())
+}

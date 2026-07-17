@@ -39,3 +39,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# lockfile
+package-lock.json
+
+# database
+*.db
+
+# platform-specific
+@next/swc-win32-*
+lightningcss-win32-*

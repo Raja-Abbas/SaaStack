@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SaaStack
+
+Multi-tenant SaaS dashboard with authentication, team management, subscriptions, and activity tracking. Built with Next.js 16, TypeScript, Prisma 7, and SQLite.
+
+## Features
+
+- **Multi-Tenant Architecture** — Organizations, roles, and permissions
+- **Authentication** — Email/password with NextAuth v5
+- **User Management** — Invite, assign roles, manage team members
+- **Subscription Billing** — Plan management, usage tracking, invoices
+- **Activity Logs** — Complete audit trail with filtering
+- **Settings** — Organization config, API keys, security, notifications
+- **Dashboard** — Revenue charts, user growth, recent activity
+
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router)
+- **Language:** TypeScript (strict)
+- **Database:** SQLite + Prisma 7 ORM
+- **Auth:** NextAuth v5
+- **Styling:** Tailwind CSS v4
+- **Components:** shadcn/ui
+- **Charts:** Recharts
+- **Icons:** Lucide React
+- **Deployment:** Netlify
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Clone
+git clone https://github.com/Raja-Abbas/saastack.git
+cd saastack
+
+# Install
+npm install
+
+# Setup database
+npx prisma db push
+npx prisma generate
+
+# Seed demo data
+npx tsx prisma/seed.ts
+
+# Run dev server
+npm run dev -- --webpack
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Demo Credentials
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Email:** demo@saastack.app
+- **Password:** password123
 
-## Learn More
+## Pages
 
-To learn more about Next.js, take a look at the following resources:
+| Route | Description |
+|-------|-------------|
+| `/` | Landing page with features and pricing |
+| `/login` | Email/password login |
+| `/signup` | Create new account |
+| `/dashboard` | Overview with charts and stats |
+| `/users` | Team management and invitations |
+| `/subscription` | Plan details and billing |
+| `/settings` | Organization, security, API keys |
+| `/activity` | Audit log with filtering |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
