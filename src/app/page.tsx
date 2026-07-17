@@ -130,7 +130,7 @@ export default function LandingPage() {
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature) => (
-            <Card key={feature.title} className="group hover:shadow-md transition-shadow duration-200">
+            <Card key={feature.title} className="group hover:shadow-md transition-shadow duration-200 bg-white text-slate-900">
               <CardHeader>
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50 text-blue-600 mb-2 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-200">
                   <feature.icon className="h-6 w-6" />
@@ -176,7 +176,7 @@ export default function LandingPage() {
         </div>
         <div className="grid gap-8 md:grid-cols-3">
           {plans.map((plan) => (
-            <Card key={plan.name} className={plan.highlighted ? "border-blue-600 shadow-lg relative" : ""}>
+            <Card key={plan.name} className={plan.highlighted ? "border-blue-600 shadow-lg relative bg-white text-slate-900" : "bg-white text-slate-900"}>
               {plan.highlighted && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2">
                   <Badge className="bg-blue-600 text-white border-blue-600">Most Popular</Badge>
